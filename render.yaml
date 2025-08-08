@@ -7,7 +7,7 @@ services:
     dockerfilePath: ./Dockerfile
     envVars:
       - key: N8N_HOST
-        value: n8n-docker.onrender.com   
+        value: n8n-xxxx.onrender.com   
       - key: N8N_PORT
         value: 5678
       - key: N8N_PROTOCOL
@@ -25,4 +25,4 @@ services:
       - key: GENERIC_TIMEZONE
         value: Asia/Bangkok
       - key: WEBHOOK_TUNNEL_URL
-        value: https://n8n-docker.onrender.com  
+        value: https://n8n-xxxx.onrender.com  

@@ -1,14 +1,9 @@
-# ใช้ image ของ n8n เวอร์ชันเสถียร
 FROM n8nio/n8n:1.116.2
 
-# ตั้ง timezone เริ่มต้น
+# ค่าพื้นฐาน
 ENV GENERIC_TIMEZONE=Asia/Bangkok \
     N8N_PROTOCOL=http \
     N8N_HOST=n8n-docker-qmzg.onrender.com
 
-# คัดลอกสคริปต์ entrypoint เข้ามาใน image
-COPY docker-entrypoint.sh /docker-entrypoint.sh
-RUN chmod +x /docker-entrypoint.sh
-
-# ใช้สคริปต์นี้ตอน container เริ่มทำงาน
-CMD ["/bin/sh","-lc","/docker-entrypoint.sh"]
+# ตั้ง N8N_PORT จาก PORT ของ Render และค่าอื่น ๆ แล้วสตาร์ท n8n
+CMD ["sh","-lc","N8N_PORT=${PORT:-5678} N8N_RUNNERS_DISABLED=${N8N_RUNNERS_DISABLED:-true} N8N_TRUSTED_PROXIES=${N8N_TRUSTED_PROXIES:-0.0.0.0/0} n8n start"]

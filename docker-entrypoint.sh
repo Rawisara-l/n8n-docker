@@ -11,7 +11,7 @@ export N8N_RUNNERS_DISABLED="${N8N_RUNNERS_DISABLED:-true}"
 export N8N_TRUSTED_PROXIES="${N8N_TRUSTED_PROXIES:-0.0.0.0/0}"
 
 # บังคับ HTTPS บน Render (สำคัญมากสำหรับ webhook / OAuth callback)
-export N8N_PROTOCOL="${N8N_PROTOCOL:-https}"
+export N8N_PROTOCOL="${N8N_PROTOCOL:-http}"
 
 # ถ้าไม่ได้ตั้ง WEBHOOK_URL แต่มี N8N_HOST ให้ประกอบ URL อัตโนมัติ
 if [ -z "${WEBHOOK_URL}" ] && [ -n "${N8N_HOST}" ]; then
